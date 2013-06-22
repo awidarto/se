@@ -1,0 +1,51 @@
+.item{
+	margin: 2px;
+	height: 165px;
+	overflow: hidden;
+}
+
+.item img{
+	height: 180px;
+}
+
+.item .title-box{
+	font-size: 12px;
+	font-weight: bold;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	min-height: 20px;
+	background-color: black;
+	opacity: 0.6;
+	padding: 5px;
+	color: white;
+	margin: 0px;
+}
+
+.item .title-box h1.item-title
+{
+	font-size: 14px;
+	font-weight: bold;
+	opacity: 1.0;
+	padding: 0 px;
+	margin: 0 px;	
+	line-height:14px;	
+}
+
+.item .tags{
+	position: absolute;
+	bottom: 0px;
+	min-height: 25px;
+	width: 100%;
+	background-color: black;
+	opacity: 0.8;
+	padding: 5px;
+	color: white;
+	font-weight: normal;
+}
+
+#item-container{
+	height:100%;
+	width: 100%;
+	overflow: hidden;
+}
