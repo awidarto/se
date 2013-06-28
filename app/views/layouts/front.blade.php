@@ -30,6 +30,19 @@
 
       {{ HTML::script('js/jquery-1.8.3.min.js')}}
 
+      {{ HTML::script('js/jquery.removeWhitespace.min.js')}}
+      {{ HTML::script('js/jquery.collagePlus.min.js')}}
+      {{ HTML::script('js/jquery.collageCaption.js')}}
+
+      {{ HTML::script('js/bootstrap-timepicker.js') }}   
+      {{ HTML::script('js/bootstrap-datetimepicker.min.js') }}   
+
+      {{ HTML::script('js/app.js')}}
+
+       <script type="text/javascript">
+          base = '{{ URL::base() }}/';
+       </script>
+
   </head>
 
   <body>
@@ -54,7 +67,13 @@
                 </form>
               </div>
               <div class="span6 identity">
-                <a class="sign" href="{{ URL::to('signup')}}">FREE SIGN UP</a>   or  <a class="sign" href="{{ URL::to('login')}}">LOG IN</a><br />
+                @if(Auth::guest())
+
+                  <a class="sign" href="{{ URL::to('signup')}}">FREE SIGN UP</a>   or  <a class="sign" href="{{ URL::to('login')}}">LOG IN</a><br />
+
+                @elseif(Auth::check())
+                  Hello {{ Auth::user()->fullname }}<br />
+                @endif
                 <a href="#" >Grow Your Business</a>
                 <a href="#" >Recommend</a>
                 <a href="#" >We <i class="icon-heart"></i> Feedback</a>
@@ -143,7 +162,6 @@
       ================================================== -->
       <!-- Placed at the end of the document so the pages load faster -->
       {{ HTML::script('bootplus/js/bootstrap.min.js')}}
-      {{ HTML::script('js/jquery.isotope.js')}}
 
    </body>
 </html>

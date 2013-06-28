@@ -16,10 +16,44 @@ Route::get('/', function()
 	return View::make('pages.home');
 });
 
+Route::get('hashme/{mypass}',function($mypass){
+
+    print Hash::make($mypass);
+});
+
+
 Route::get('login',function(){
 
 	return View::make('auth.login');
 
+});
+
+Route::post('login',function(){
+
+	$username = Input::get('username');
+    $password = Input::get('password');
+
+    if ( $userdata = Auth::attempt(array('username'=>$username, 'password'=>$password)) )
+    {
+        //print_r($userdata);
+        // we are now logged in, go to home
+        return Redirect::to('/');
+
+    }
+    else
+    {
+        // auth failure! lets go back to the login
+        return Redirect::to('login')
+            ->with('login_errors', true);
+        // pass any error notification you want
+        // i like to do it this way  
+    }
+
+});
+
+Route::get('logout',function(){
+    Auth::logout();
+    return Redirect::to('/');
 });
 
 Route::get('signup',function(){

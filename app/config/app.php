@@ -117,7 +117,8 @@ return array(
 		'MongoAuth\MongoAuthServiceProvider',
 		'MongoAuth\Reminders\ReminderServiceProvider',
 		'Atticmedia\Anvard\AnvardServiceProvider',
-		'Former\FormerServiceProvider'
+		'Former\FormerServiceProvider',
+		'Noherczeg\Breadcrumb\BreadcrumbServiceProvider'
 
 	),
 
@@ -185,7 +186,9 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 		'LMongo'          => 'LMongo\Facades\LMongo',
 		'EloquentMongo'   => 'LMongo\Eloquent\Model',
-		'Former'          => 'Former\Facades\Illuminate'
+		'Former'          => 'Former\Facades\Illuminate',
+		'Breadcrumb'      => 'Noherczeg\Breadcrumb\Facades\Breadcrumb'
+
 	),
 
 );

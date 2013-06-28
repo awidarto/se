@@ -12,7 +12,8 @@
 		"laravel/curl": "dev-master",
 		"jasonlewis/basset": "dev-master",
 		"atticmedia/anvard": "dev-master",
-		"anahkiasen/former": "dev-agnostic"
+		"anahkiasen/former": "dev-agnostic",
+		"noherczeg/breadcrumb": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

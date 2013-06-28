@@ -15,8 +15,8 @@
 
 <div class="row dotted">
     <div class="span6 offset6">
-        {{ Former::five_text('email')->name('Email') }} 
-        {{ Former::five_password('pass')->name('Password') }}                    
+        {{ Former::five_text('username')->name('username') }} 
+        {{ Former::five_password('password')->name('password') }}                    
         
         {{ Former::actions()->primary_submit('Log In') }}
     </div>
