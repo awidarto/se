@@ -29,19 +29,23 @@
                                    <link rel="shortcut icon" href="../assets/ico/favicon.png">
 
       {{ HTML::script('js/jquery-1.8.3.min.js')}}
+      {{ HTML::script('js/jquery-ui-1.9.2.custom.min.js')}}
 
       {{ HTML::script('js/jquery.removeWhitespace.min.js')}}
       {{ HTML::script('js/jquery.collagePlus.min.js')}}
       {{ HTML::script('js/jquery.collageCaption.js')}}
 
+      {{ HTML::script('js/jquery.tagsinput.js') }}
+
       {{ HTML::script('js/bootstrap-timepicker.js') }}   
       {{ HTML::script('js/bootstrap-datetimepicker.min.js') }}   
 
-      {{ HTML::script('js/app.js')}}
 
        <script type="text/javascript">
           base = '{{ URL::to('/') }}/';
        </script>
+
+      {{ HTML::script('js/jquery.tagsinput.js') }}       
 
   </head>
 
