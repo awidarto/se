@@ -40,7 +40,7 @@
       {{ HTML::script('js/app.js')}}
 
        <script type="text/javascript">
-          base = '{{ URL::base() }}/';
+          base = '{{ URL::to('/') }}/';
        </script>
 
   </head>
