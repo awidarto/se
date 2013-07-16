@@ -37,15 +37,15 @@
 
       {{ HTML::script('js/jquery.tagsinput.js') }}
 
-      {{ HTML::script('js/bootstrap-timepicker.js') }}   
-      {{ HTML::script('js/bootstrap-datetimepicker.min.js') }}   
+      {{ HTML::script('js/bootstrap-timepicker.js') }}
+      {{ HTML::script('js/bootstrap-datetimepicker.min.js') }}
 
 
        <script type="text/javascript">
           base = '{{ URL::to('/') }}/';
        </script>
 
-      {{ HTML::script('js/jquery.tagsinput.js') }}       
+      {{ HTML::script('js/jquery.tagsinput.js') }}
 
   </head>
 
@@ -57,7 +57,7 @@
       <div class="navbar navbar-fixed-top">
         <div class="navbar-inner">
           <div class="container">
-            <div class="row-fluid">
+            <div class="row">
               <div class="span1">
                 <a class="brand" href="{{ URL::to('/')}}">
                   <img src="images/se-logo.png">
@@ -114,7 +114,7 @@
               </ul>
             </div>
           </div>
- 
+
          </div>
       </div>
 
@@ -130,35 +130,38 @@
 
     <div id='footer'>
       <div class="container">
-        <div class="row-fluid">
-          <div class="span2 flink">
-            <h4>GET TO KNOW US</h4>
+        <div class="row" style="padding:auto">
+            <div class="span3 offset1 flink">
+                <h4>GET TO KNOW US</h4>
 
-            <a href="#" >About</a><br />
-            <a href="#" >Terms of Service</a><br />
-            <a href="#" >Privacy Policy</a>
-          </div>
-          <div class="span2 flink">
-            <h4>GROW YOUR BUSINESS</h4>
+                <a href="#" >About</a><br />
+                <a href="#" >Terms of Service</a><br />
+                <a href="#" >Privacy Policy</a>
+            </div>
+            <div class="span3 offset1 flink">
+                <h4>GROW YOUR BUSINESS</h4>
 
-            <a href="#" >Virtual Showroom</a><br />
-            <a href="#" >Pricing</a><br />
-            <a href="#" >Product Listing Policy</a>
+                <a href="#" >Virtual Showroom</a><br />
+                <a href="#" >Pricing</a><br />
+                <a href="#" >Product Listing Policy</a>
 
-          </div>
-          <div class="span2 flink">
-            <h4>TALK TO US</h4>
+            </div>
+            <div class="span3 offset1 flink">
+                <h4>TALK TO US</h4>
 
-            <a href="#" >We <i class="icon-heart"></i> Feedback</a><br />
-            <span class="fmenu">Recommend</span><br />
-            <a class="social" href="#"><i class="icon-facebook-sign"></i></a>
-            <a class="social" href="#"><i class="icon-pinterest"></i></a>
-          </div>
+                <a href="#" >We <i class="icon-heart"></i> Feedback</a><br />
+                <span class="fmenu">Recommend</span><br />
+                <a class="social" href="#"><i class="icon-facebook-sign"></i></a>
+                <a class="social" href="#"><i class="icon-pinterest"></i></a>
+            </div>
         </div>
-
-        <p class="muted credit">
-          &copy; {{ Config::get('site.name')}} {{ date('Y',time()) }}
-        </p>
+        <div class="row" style="padding:auto">
+            <div class="span12 copyright">
+                <p class="muted credit">
+                  &copy; {{ Config::get('site.name')}} {{ date('Y',time()) }}
+                </p>
+            </div>
+        </div>
       </div>
     </div>
 

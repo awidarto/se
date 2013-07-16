@@ -8,7 +8,7 @@ body{
   font-family: 'Lucida Grande';
   font-size: 11px;
   background-color: #fff;
-  color: #232323;        
+  color: #232323;
 }
 
 /* Wrapper for page content to push down footer */
@@ -34,7 +34,15 @@ body{
 #footer h4{
   font-size: 11px;
   font-weight: bold;
+  border-bottom: thin dotted #888;
 }
+
+#footer .copyright{
+    border-top: thin solid #777;
+    line-height: 1.5em;
+    padding-top: 10px;
+}
+
 
 .beta{
   display: block;
@@ -43,7 +51,7 @@ body{
   background-color: 375724;
 }
 
-.navbar .brand, 
+.navbar .brand,
 a.brand{
   padding: 0px;
   margin:0px 0px 10px 0px;
@@ -53,6 +61,7 @@ a.brand{
 #footer a{
   color:#FFF;
   text-decoration: none;
+  line-height: 1.8em;
 }
 
 #footer a:hover{
@@ -74,9 +83,12 @@ a.brand{
   margin: 0px;
 }
 
-.navbar .top-nav .nav > li > a.active,
+.navbar .nav > li.active > a,
+.navbar .nav > li > a:hover,
+.navbar .top-nav .nav > li.active > a,
 .navbar .top-nav .nav > li > a:hover{
   color: #e26062;
+  border-color: red;
 }
 
 div.container.top-nav{
@@ -95,7 +107,7 @@ a.social{
 }
 
 .btn-search{
-  background-image: none; 
+  background-image: none;
   background-color: #d6d6d6;
   color: #555;
   width:29px;
@@ -129,7 +141,7 @@ a.soc-signup{
 }
 
 a.soc-signup i{
-  font-size: 3em;  
+  font-size: 3em;
 }
 
 
@@ -176,7 +188,7 @@ label{
   padding: 0 10px;
 }
 
-/*      
+/*
 
 
 body {

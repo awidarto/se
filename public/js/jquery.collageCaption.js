@@ -22,8 +22,8 @@
 
 
   $.fn.collageCaption = function( options ) {
-  
-  
+
+
     // Defaults
     var settings = $.extend( {
         // object that contains the images to collage
@@ -33,8 +33,11 @@
         // opacity for the caption background
         'opacity'         : "0.5",
         // speed of the reveal / hide animation
-        'speedin'           : 100,
-        'speedout'           : 100,
+        'speedin'           : 200,
+        'speedout'           : 200,
+
+        'topspeedin'           : 100,
+        'topspeedout'           : 100,
         // css class for the caption wrapper
         'class'           : "Caption"
     }, options);
@@ -42,11 +45,11 @@
     return this.each(function() {
 
         /*
-        * 
+        *
         * set up vars
         *
         */
-        
+
         // track row width
         var row         = 0,
         // collect elements to be resized in current row
@@ -57,55 +60,55 @@
             function(index){
 
                 /*
-                * 
+                *
                 * Cache selector
                 *
                 */
                 var $this = $(this);
-                
+
                 /*
-                * 
+                *
                 * Do we need to do anything with captions
                 *
                 */
                 if (typeof $this.data("caption") == 'undefined'){
                     return;
                 }
-                
+
                 var margin = $this.css('margin');
 
                 /*
-                * 
+                *
                 * The HTML to append to the containing element
                 *
                 */
-                var html = '<div class="' + settings.class + '" style="position:relative;"><div class="Caption_Background" style="background-color:' + 
-                            settings.background + ';opacity:' + 
-                            settings.opacity + ';position:relative;top:' + margin +';"></div><div class="Caption_Content" style="position:relative;">' + 
+                var html = '<div class="' + settings.class + '" style="position:relative;"><div class="Caption_Background" style="background-color:' +
+                            settings.background + ';opacity:' +
+                            settings.opacity + ';position:relative;top:' + margin +';"></div><div class="Caption_Content" style="position:relative;">' +
                             $this.data("caption") + '</div></div>';
 
-                var thtml = '<div class="Top_' + settings.class + '" style="position:relative;"><div class="Top_Caption_Background" style="background-color:' + 
-                            settings.background + ';opacity:' + 
-                            settings.opacity + ';position:relative;"></div><div class="Top_Caption_Content" style="position:relative;">' + 
+                var thtml = '<div class="Top_' + settings.class + '" style="position:relative;"><div class="Top_Caption_Background" style="background-color:' +
+                            settings.background + ';opacity:' +
+                            settings.opacity + ';position:relative;"></div><div class="Top_Caption_Content" style="position:relative;">' +
                             $this.data("title") + '</div></div>';
 
                 $this.append(html).append(thtml);
-                
+
                 /*
-                * 
+                *
                 * Cache the caption selectors
                 *
                 */
                 var $cap    =  $this.find("." + settings.class),
                     $capbg  =  $this.find(".Caption_Background"),
                     $captxt =  $this.find(".Caption_Content");
-                
+
                 var $topcap    =  $this.find(".Top_" + settings.class),
                     $topcapbg  =  $this.find(".Top_Caption_Background"),
                     $topcaptxt =  $this.find(".Top_Caption_Content");
-        
+
                 /*
-                * 
+                *
                 * Calculate the caption height
                 *
                 */
@@ -115,33 +118,34 @@
 
                 var ih = $this.height();
 
-                var topcappos = (parseInt(th) * 2) + parseInt(h) + parseInt(ih) - ( 2 * parseInt(margin));
+                //var topcappos = (parseInt(th) * 2) + parseInt(h) + parseInt(ih) - ( 2 * parseInt(margin));
 
-                var topanim = topcappos - parseInt(th);
+                var topcappos =  ih + h + th;
 
-                $topcap.css("top", "-" + topcappos + "px");
-                    
+                $topcap.css("top", "-" + topcappos + "px").css('display','none');
+                $cap.css("top", "-" + h + "px").css('display','none');
+
                 /*
-                * 
+                *
                 * Set the background for the caption
                 *
                 */
                 $capbg.height(h);
 
                 $topcapbg.height(th);
-                
+
                 /*
-                * 
+                *
                 * Overlap the caption content
                 *
                 */
                 $captxt.css("top", "-" + h + "px");
 
                 $topcaptxt.css("top", "-" + th + "px");
-                
-                
+
+
                 /*
-                * 
+                *
                 * Bind the rollover action to the element
                 *
                 */
@@ -149,12 +153,12 @@
                     {
                         mouseenter: function(e) {
 
-                            $cap.animate({ top: (-1 * h) }, { duration: settings.speedin, queue: false });
-                            $topcap.animate({ top: (-1 * topanim) }, { duration: settings.speedin, queue: false });
+                            $cap.animate({ opacity: 'show' }, { duration: settings.speedin, queue: false });
+                            $topcap.animate({ opacity: 'show' }, { duration: settings.topspeedin, queue: false });
                         },
                         mouseleave: function(e) {
-                            $cap.animate({ top: 0 }, { duration: settings.speedout, queue: false });
-                            $topcap.animate({ top: topcappos }, { duration: settings.speedout, queue: false });
+                            $cap.animate({ opacity: 'hide' }, { duration: settings.speedout, queue: false });
+                            $topcap.animate({ opacity: 'hide' }, { duration: settings.topspeedout, queue: false });
                         }
                     }
                 );

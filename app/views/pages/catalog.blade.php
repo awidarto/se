@@ -31,7 +31,7 @@
 			  	itemSelector : '.item',
 				layoutMode: 'fitRows',
 			    resizesContainer: true
-			});			
+			});
 		});
 	});
 </script>
